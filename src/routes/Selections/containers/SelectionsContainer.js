@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { increment, doubleAsync } from '../modules/selections'
+import { loadSelections, addSelection } from '../modules/selections'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,12 +13,12 @@ import Selections from '../components/Selections'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  increment : () => increment(1),
-  doubleAsync
+  loadSelections,
+  addSelection
 }
 
 const mapStateToProps = (state) => ({
-  counter : state.counter
+  selections : state.selections
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

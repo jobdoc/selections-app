@@ -26,4 +26,29 @@ describe('(Store) createStore', () => {
       expect(store.getState().location).to.deep.equal(location)
     })
   })
+
+  describe('(Form)', () => {
+    it('store should be initialized with Form state', () => {
+      const name = 'aForm'
+      const payload = {
+        name: 'aField',
+        type: 'Field'
+      }
+      store.dispatch({
+        type: '@@redux-form/REGISTER_FIELD',
+        meta: {
+          form: name
+        },
+        payload
+      })
+      const form = {
+        [name]: {
+          registeredFields: [
+            payload
+          ]
+        }
+      }
+      expect(store.getState().form).to.deep.equal(form)
+    })
+  })
 })

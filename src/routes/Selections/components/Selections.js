@@ -1,22 +1,29 @@
 import React from 'react'
+import AddSelectionFormContainer from '../containers/AddSelectionFormContainer'
 
-export const Selections = (props) => (
-  <div style={{ margin: '0 auto' }} >
-    <h2>Counter: {props.counter}</h2>
-    <button className='btn btn-default' onClick={props.increment}>
-      Increment
-    </button>
-    {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
-      Double (Async)
-    </button>
-  </div>
-)
+export class Selections extends React.Component {
+  componentWillMount () {
+    this.props.loadSelections()
+  }
+
+  render () {
+    return (
+      <div>
+        <h1>Selections</h1>
+        <AddSelectionFormContainer onSubmit={this.props.addSelection} />
+        <pre style={{ marginTop: '3em' }}>{JSON.stringify(this.props.selections, null, 2)}</pre>
+      </div>
+    )
+  }
+}
 
 Selections.propTypes = {
-  counter     : React.PropTypes.number.isRequired,
-  doubleAsync : React.PropTypes.func.isRequired,
-  increment   : React.PropTypes.func.isRequired
+  selections     : React.PropTypes.shape({
+    name: React.PropTypes.string,
+    product: React.PropTypes.string
+  }),
+  addSelection   : React.PropTypes.func.isRequired,
+  loadSelections : React.PropTypes.func.isRequired
 }
 
 export default Selections

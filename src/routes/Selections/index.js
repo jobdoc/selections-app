@@ -12,8 +12,8 @@ export default (store) => ({
       const Selections = require('./containers/SelectionsContainer').default
       const reducer = require('./modules/selections').default
 
-      /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'counter', reducer })
+      /*  Add the reducer to the store on key 'selections'  */
+      injectReducer(store, { key: 'selections', reducer })
 
       /*  Return getComponent   */
       cb(null, Selections)

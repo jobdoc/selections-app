@@ -22,14 +22,8 @@ describe('(Component) Selections', () => {
     expect(_wrapper.is('div')).to.equal(true)
   })
 
-  it('Should render with an <h2> that includes Sample Counter text.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/Counter:/)
-  })
-
-  it('Should render props.counter at the end of the sample counter <h2>.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/5$/)
-    _wrapper.setProps({ counter: 8 })
-    expect(_wrapper.find('h2').text()).to.match(/8$/)
+  it('Should render with an <h1> that includes page title.', () => {
+    expect(_wrapper.find('h1').text()).to.match(/Selections/)
   })
 
   it('Should render exactly two buttons.', () => {

@@ -3,7 +3,7 @@ import {
   increment,
   doubleAsync,
   default as counterReducer
-} from 'routes/Selections/modules/counter'
+} from 'routes/Selections/modules/selections'
 
 describe('(Redux Module) Selections', () => {
   it('Should export a constant COUNTER_INCREMENT.', () => {
