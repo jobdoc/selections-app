@@ -1,6 +1,7 @@
 // ---------------------------------------
 // Test Environment Setup
 // ---------------------------------------
+import 'es6-promise/auto'
 import sinon from 'sinon'
 import chai from 'chai'
 import sinonChai from 'sinon-chai'

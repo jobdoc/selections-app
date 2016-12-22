@@ -3,6 +3,10 @@ import CoreLayout from '../layouts/CoreLayout/CoreLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
 import SelectionsRoute from './Selections'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
+/*  Setup touch / tap / clickevents for material-ui */
+injectTapEventPlugin()
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */

@@ -10,9 +10,9 @@ export const POST_SELECTION_REQUEST = 'POST_SELECTION_REQUEST'
 export const POST_SELECTION_FAILURE = 'POST_SELECTION_FAILURE'
 export const POST_SELECTION_SUCCESS = 'POST_SELECTION_SUCCESS'
 
-export const FETCH_SELECTION_REQUEST = 'FETCH_SELECTION_REQUEST'
-export const FETCH_SELECTION_FAILURE = 'FETCH_SELECTION_FAILURE'
-export const FETCH_SELECTION_SUCCESS = 'FETCH_SELECTION_SUCCESS'
+export const FETCH_SELECTIONS_REQUEST = 'FETCH_SELECTIONS_REQUEST'
+export const FETCH_SELECTIONS_FAILURE = 'FETCH_SELECTIONS_FAILURE'
+export const FETCH_SELECTIONS_SUCCESS = 'FETCH_SELECTIONS_SUCCESS'
 
 // ------------------------------------
 // Actions
@@ -38,16 +38,16 @@ const postSelection = (selection) => ({
 })
 
 export const addSelection = (selection) => (dispatch) => {
-  dispatch(postSelection(selection))
-  return dispatch({
+  dispatch({
     type    : ADD_SELECTION,
     payload : selection
   })
+  return dispatch(postSelection(selection))
 }
 
 const fetchSelections = () => ({
   [CALL_API]: {
-    types: [FETCH_SELECTION_REQUEST, FETCH_SELECTION_SUCCESS, FETCH_SELECTION_FAILURE],
+    types: [FETCH_SELECTIONS_REQUEST, FETCH_SELECTIONS_SUCCESS, FETCH_SELECTIONS_FAILURE],
     endpoint: 'getSelections',
     schema: Schemas.SELECTION_ARRAY
   }
@@ -67,8 +67,8 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [ADD_SELECTION]: (state, action) => ({
-    ...state,
-    justAdded: action.payload
+    justAdded: action.payload,
+    ...state
   }),
   [POST_SELECTION_FAILURE]: (state, action) => {
     const preadditionState = omit(state, 'justAdded')
@@ -84,11 +84,11 @@ const ACTION_HANDLERS = {
       ...preadditionState
     }
   },
-  [FETCH_SELECTION_FAILURE]: (state, action) => ({
+  [FETCH_SELECTIONS_FAILURE]: (state, action) => ({
     error: action.error,
     ...state
   }),
-  [FETCH_SELECTION_SUCCESS]: (state, action) => action.response.entities.selections
+  [FETCH_SELECTIONS_SUCCESS]: (state, action) => action.response.entities.selections
 }
 
 // ------------------------------------

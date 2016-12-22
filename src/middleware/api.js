@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import { Schema, arrayOf, normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
 
@@ -16,7 +17,7 @@ const getNextPageUrl = response => {
   return nextLink.split(';')[0].slice(1, -1)
 }
 
-const API_ROOT = 'https://us-central1-jobdoc-151914.cloudfunctions.net/'
+export const API_ROOT = 'https://us-central1-jobdoc-151914.cloudfunctions.net/'
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
