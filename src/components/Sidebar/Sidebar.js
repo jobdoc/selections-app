@@ -10,22 +10,46 @@ import ContentInbox from 'material-ui/svg-icons/content/inbox'
 export const Sidebar = () => (
   <div>
     <List>
-      <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+      <IndexLink className='list-link' to='/'>
+        <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+      </IndexLink>
     </List>
     <Divider />
     <List>
       <Subheader>Categories</Subheader>
-      <ListItem primaryText='Appliances' />
-      <ListItem primaryText='Cabinetry' />
-      <ListItem primaryText='Doors' />
-      <ListItem primaryText='Flooring' />
-      <ListItem primaryText='Lighting & Electrical' />
-      <ListItem primaryText='Paint' />
-      <ListItem primaryText='Plumbing' />
-      <ListItem primaryText='Specialty Items' />
-      <ListItem primaryText='Tile' />
-      <ListItem primaryText='Trim' />
-      <ListItem primaryText='Windows' />
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Appliances' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Cabinetry' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Doors' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Flooring' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Lighting & Electrical' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Paint' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Plumbing' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Specialty Items' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Tile' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Trim' />
+      </Link>
+      <Link className='list-link' to='/selections'>
+        <ListItem primaryText='Windows' />
+      </Link>
     </List>
     <Divider />
     <List>

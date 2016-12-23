@@ -18,7 +18,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  selections : state.selections
+  selections : state.entities.selections
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

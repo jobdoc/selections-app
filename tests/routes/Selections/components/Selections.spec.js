@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { Selections } from 'routes/Selections/components/Selections'
 import { shallow } from 'enzyme'
 
-describe('(Component) Selections', () => {
+describe.skip('(Component) Selections', () => {
   let _props, _spies, _wrapper
 
   beforeEach(() => {

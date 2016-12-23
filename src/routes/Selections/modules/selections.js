@@ -1,5 +1,4 @@
 import { CALL_API, Schemas } from 'middleware/api'
-import omit from 'lodash/omit'
 
 // ------------------------------------
 // Constants
@@ -70,25 +69,32 @@ const ACTION_HANDLERS = {
     justAdded: action.payload,
     ...state
   }),
-  [POST_SELECTION_FAILURE]: (state, action) => {
-    const preadditionState = omit(state, 'justAdded')
-    return {
-      error: action.error,
-      ...preadditionState
-    }
-  },
-  [POST_SELECTION_SUCCESS]: (state, action) => {
-    const preadditionState = omit(state, 'justAdded')
-    return {
-      ...action.response.entities.selections,
-      ...preadditionState
-    }
-  },
-  [FETCH_SELECTIONS_FAILURE]: (state, action) => ({
-    error: action.error,
+  [POST_SELECTION_REQUEST]: (state, action) => ({
+    posting: true,
     ...state
   }),
-  [FETCH_SELECTIONS_SUCCESS]: (state, action) => action.response.entities.selections
+  [POST_SELECTION_FAILURE]: (state, action) => ({
+    error: action.error,
+    posting: false,
+    ...state
+  }),
+  [POST_SELECTION_SUCCESS]: (state, action) => ({
+    posting: false,
+    ...state
+  }),
+  [FETCH_SELECTIONS_REQUEST]: (state, action) => ({
+    fetching: true,
+    ...state
+  }),
+  [FETCH_SELECTIONS_FAILURE]: (state, action) => ({
+    error: action.error,
+    fetching: false,
+    ...state
+  }),
+  [FETCH_SELECTIONS_SUCCESS]: (state, action) => ({
+    fetching: false,
+    ...state
+  })
 }
 
 // ------------------------------------

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Selection.scss'
+import EditSelectionInfoForm from '../containers/EditSelectionInfoFormContainer'
 import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card'
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper'
 import { Tabs, Tab } from 'material-ui/Tabs'
@@ -8,8 +9,6 @@ import Divider from 'material-ui/Divider'
 import Avatar from 'material-ui/Avatar'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
-import DropDownMenu from 'material-ui/DropDownMenu'
-import MenuItem from 'material-ui/MenuItem'
 
 export class Selection extends React.Component {
   componentWillMount () {
@@ -46,30 +45,8 @@ export class Selection extends React.Component {
             {this.props.selection.description}
           </CardText>
           <CardText expandable>
-            Update status
-            <br />
-            <DropDownMenu value={1}>
-              <MenuItem value={1} primaryText='Outstanding' />
-              <MenuItem value={2} primaryText='Choices offered' />
-              <MenuItem value={3} primaryText='Selection made' />
-              <MenuItem value={4} primaryText='Ordered' />
-            </DropDownMenu>
-            <br />
-            Update description
-            <br />
-            <TextField
-              hintText='Description'
-              value={this.props.selection.description}
-              multiLine
-              fullWidth
-              rows={1}
-              rowsMax={4}
-            />
+            <EditSelectionInfoForm />
           </CardText>
-          <CardActions expandable>
-            <FlatButton label='Save' primary />
-            <FlatButton label='Cancel' />
-          </CardActions>
         </Card>
         <Card>
           <Tabs>
@@ -80,7 +57,7 @@ export class Selection extends React.Component {
                     <img src={choice.image_url} alt={choice.model} />
                   </CardMedia>
                   <List>
-                    <a className='selection__list-link' href={choice.url} target='_blank'>
+                    <a className='list-link' href={choice.url} target='_blank'>
                       <ListItem
                         primaryText={choice.model}
                         secondaryText={choice.manufacturer}
@@ -174,7 +151,7 @@ Selection.defaultProps = {
       {
         id: '23kj32kj2k',
         image_url: 'https://www.rohlhome.com/Images/i21126.JPG',
-        url: 'https://www.rohlhome.com/Kitchen/Product_Detail.aspx?ProductID=U.4272-21652&Collection=1619&SubCollection=1652&ConnectionString=%22Product.Perrin%20^%20Rowe$S$$P$$C$0%22',
+        url: 'https://www.rohlhome.com/Kitchen/Product_Detail.aspx?ProductID=U.4272-21652&Collection=1619&SubCollection=1652&ConnectionString=%22Product.Perrin%20^%20Rowe$S$$P$$C$0%22', // eslint-disable-line max-len
         manufacturer: 'Perrin & Rowe',
         model: 'Contemporary bridge kitchen faucet with sidespray',
         item_code: 'FMHK11024WH',
@@ -194,12 +171,12 @@ Selection.defaultProps = {
       },
       {
         id: '2kj3kj99dsk',
-        image_url: 'http://kohler.scene7.com/is/image/PAWEB/Category_Template?$PDPcon$&$gradient_src=PAWEB%2Forganic-gradient&$shadow_src=PAWEB%2FBlank&$Badge1_src=PAWEB%2F2New&$Badge4_src=PAWEB%2FBlank&$Badge3_src=PAWEB%2FBlank&$Badge2_src=PAWEB%2FBlank&$product_src=is{PAWEB%2Fzab35855_rgb}',
-        url: 'http://www.us.kohler.com/us/baross-touchless-kitchen-faucet/productDetail/kitchen-sink-faucets/1280604.htm;jsessionid=A858D57DDCAF454CBA986C3FDEE36454.kohler-prod2-ecom2?skuId=1280602&brandId=1117946',
+        image_url: 'http://kohler.scene7.com/is/image/PAWEB/Category_Template?$PDPcon$&$gradient_src=PAWEB%2Forganic-gradient&$shadow_src=PAWEB%2FBlank&$Badge1_src=PAWEB%2F2New&$Badge4_src=PAWEB%2FBlank&$Badge3_src=PAWEB%2FBlank&$Badge2_src=PAWEB%2FBlank&$product_src=is{PAWEB%2Fzab35855_rgb}', // eslint-disable-line max-len
+        url: 'http://www.us.kohler.com/us/baross-touchless-kitchen-faucet/productDetail/kitchen-sink-faucets/1280604.htm;jsessionid=A858D57DDCAF454CBA986C3FDEE36454.kohler-prod2-ecom2?skuId=1280602&brandId=1117946', // eslint-disable-line max-len
         manufacturer: 'Kohler',
         model: 'Barossa',
         item_code: 'K-R78035-SD-VS',
-        description: 'With a state-of-the-art sensor conveniently located underneath the spout, the Barossa faucet with Response® touchless technology works with your hand’s natural position in the sink while helping prevent the spread of germs and reducing soap and water stains. Barossa\'s hidden sensor maintains the integrity of the easy-to-clean design, and simple installation makes for a quick and beautiful update to the busiest room in your home.'
+        description: 'With a state-of-the-art sensor conveniently located underneath the spout, the Barossa faucet with Response® touchless technology works with your hand’s natural position in the sink while helping prevent the spread of germs and reducing soap and water stains. Barossa\'s hidden sensor maintains the integrity of the easy-to-clean design, and simple installation makes for a quick and beautiful update to the busiest room in your home.' // eslint-disable-line max-len
       }
     ],
     comments: [

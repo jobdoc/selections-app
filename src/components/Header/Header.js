@@ -6,7 +6,7 @@ export const Header = () => (
   <AppBar
     title='JobDoc'
     iconClassNameRight='muidocs-icon-navigation-more-vert'
-  / >
+  />
 )
 
 export default Header

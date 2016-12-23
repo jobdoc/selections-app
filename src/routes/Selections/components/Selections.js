@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { GridList, GridTile} from 'material-ui/GridList'
+import { GridList, GridTile } from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
+import AddSelectionForm from '../containers/AddSelectionFormContainer'
 import './Selections.scss'
 
 export class Selections extends React.Component {
@@ -14,6 +15,7 @@ export class Selections extends React.Component {
   render () {
     return (
       <div>
+        <AddSelectionForm onSubmit={this.props.addSelection} />
         <GridList
           cols={3}
         >
@@ -29,7 +31,7 @@ export class Selections extends React.Component {
                 >
                   <img
                     className='selections__tile-image'
-                    src='http://res.cloudinary.com/jobdoc/image/upload/c_fit,w_200,h_400/industrial-kitchen-faucets_y7sdei.jpg'
+                    src='http://res.cloudinary.com/jobdoc/image/upload/c_fit,w_200,h_400/industrial-kitchen-faucets_y7sdei.jpg' // eslint-disable-line max-len
                   />
                 </GridTile>
               </Link>
