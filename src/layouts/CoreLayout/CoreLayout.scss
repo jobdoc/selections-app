@@ -1,3 +1,21 @@
+.core-layout__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
 .core-layout__viewport {
-  padding-top: 4rem;
+  padding-top: 84px;
+  margin-left: 272px;
+  margin-right: 104px;
+}
+
+.core-layout__sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 216px;
+  padding: 76px 8px 52px;
 }

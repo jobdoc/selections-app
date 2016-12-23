@@ -1,5 +1,10 @@
 import React from 'react'
-import AddSelectionFormContainer from '../containers/AddSelectionFormContainer'
+import { Link } from 'react-router'
+import { GridList, GridTile} from 'material-ui/GridList'
+import Subheader from 'material-ui/Subheader'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+import './Selections.scss'
 
 export class Selections extends React.Component {
   componentWillMount () {
@@ -9,9 +14,33 @@ export class Selections extends React.Component {
   render () {
     return (
       <div>
-        <h1>Selections</h1>
-        <AddSelectionFormContainer onSubmit={this.props.addSelection} />
-        <pre style={{ marginTop: '3em' }}>{JSON.stringify(this.props.selections, null, 2)}</pre>
+        <GridList
+          cols={3}
+        >
+          <Subheader>Kitchen</Subheader>
+          {Object.keys(this.props.selections).map(key => {
+            const tile = this.props.selections[key]
+            return (
+              <Link to={`/selection/${tile.id}`} key={`selection-${tile.id}`}>
+                <GridTile
+                  title={tile.product}
+                  subtitle={tile.name}
+                  rows={2}
+                >
+                  <img
+                    className='selections__tile-image'
+                    src='http://res.cloudinary.com/jobdoc/image/upload/c_fit,w_200,h_400/industrial-kitchen-faucets_y7sdei.jpg'
+                  />
+                </GridTile>
+              </Link>
+            )
+          })}
+        </GridList>
+        <div className='selections__add-button'>
+          <FloatingActionButton>
+            <ContentAdd />
+          </FloatingActionButton>
+        </div>
       </div>
     )
   }
