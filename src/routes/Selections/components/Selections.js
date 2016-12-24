@@ -20,13 +20,12 @@ export class Selections extends React.Component {
           cols={3}
         >
           <Subheader>Kitchen</Subheader>
-          {Object.keys(this.props.selections).map(key => {
-            const tile = this.props.selections[key]
+          {this.props.selections.map(selection => {
             return (
-              <Link to={`/selection/${tile.id}`} key={`selection-${tile.id}`}>
+              <Link to={`/selection/${selection.id}`} key={`selection-${selection.id}`}>
                 <GridTile
-                  title={tile.product}
-                  subtitle={tile.name}
+                  title={selection.product}
+                  subtitle={selection.name}
                   rows={2}
                 >
                   <img
@@ -49,10 +48,10 @@ export class Selections extends React.Component {
 }
 
 Selections.propTypes = {
-  selections     : React.PropTypes.shape({
+  selections     : React.PropTypes.arrayOf(React.PropTypes.shape({
     name: React.PropTypes.string,
     product: React.PropTypes.string
-  }),
+  })),
   addSelection   : React.PropTypes.func.isRequired,
   loadSelections : React.PropTypes.func.isRequired
 }

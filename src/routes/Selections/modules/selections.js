@@ -70,29 +70,29 @@ const ACTION_HANDLERS = {
     ...state
   }),
   [POST_SELECTION_REQUEST]: (state, action) => ({
-    posting: true,
+    isPosting: true,
     ...state
   }),
   [POST_SELECTION_FAILURE]: (state, action) => ({
     error: action.error,
-    posting: false,
+    isPosting: false,
     ...state
   }),
   [POST_SELECTION_SUCCESS]: (state, action) => ({
-    posting: false,
+    isPosting: false,
     ...state
   }),
   [FETCH_SELECTIONS_REQUEST]: (state, action) => ({
-    fetching: true,
+    isFetching: true,
     ...state
   }),
   [FETCH_SELECTIONS_FAILURE]: (state, action) => ({
     error: action.error,
-    fetching: false,
+    isFetching: false,
     ...state
   }),
   [FETCH_SELECTIONS_SUCCESS]: (state, action) => ({
-    fetching: false,
+    isFetching: false,
     ...state
   })
 }
