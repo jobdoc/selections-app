@@ -11,7 +11,7 @@ export const EditSelectionInfoForm = (props) => (
   <form onSubmit={props.handleSubmit}>
     <Field name='status' component={SelectField} hintText='Update status'>
       <MenuItem value='outstanding' primaryText='Outstanding' />
-      <MenuItem value='choice offered' primaryText='Choices offered' />
+      <MenuItem value='options offered' primaryText='Options offered' />
       <MenuItem value='selection made' primaryText='Selection made' />
       <MenuItem value='ordered' primaryText='Ordered' />
     </Field>
@@ -19,12 +19,13 @@ export const EditSelectionInfoForm = (props) => (
     <Field name='description' component={TextField} hintText='Update description' />
     <br />
     <FlatButton type='submit' label='Save' primary />
-    <FlatButton label='Cancel' />
+    <FlatButton label='Cancel' onClick={props.onCancel} />
   </form>
 )
 
 EditSelectionInfoForm.propTypes = {
-  handleSubmit: React.PropTypes.func.isRequired
+  handleSubmit  : React.PropTypes.func.isRequired,
+  onCancel      : React.PropTypes.func.isRequired
 }
 
 export default EditSelectionInfoForm

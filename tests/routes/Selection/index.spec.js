@@ -1,17 +1,17 @@
-import SelectionsRoute from 'routes/Selections'
+import SelectionRoute from 'routes/Selection'
 
-describe('(Route) Selections', () => {
+describe('(Route) Selection', () => {
   let _route
 
   beforeEach(() => {
-    _route = SelectionsRoute({})
+    _route = SelectionRoute({})
   })
 
   it('Should return a route configuration object', () => {
     expect(typeof _route).to.equal('object')
   })
 
-  it('Configuration should contain path `selections`', () => {
-    expect(_route.path).to.equal('selections')
+  it('Configuration should contain path `selection/:selectionId`', () => {
+    expect(_route.path).to.equal('selection/:selectionId')
   })
 })
