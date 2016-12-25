@@ -13,13 +13,10 @@ import Avatar from 'material-ui/Avatar'
 import FlatButton from 'material-ui/FlatButton'
 
 describe('(Component) Selection', () => {
-  let _props, _spies, _wrapper, _state
+  let _props, _spies, _wrapper
 
   beforeEach(() => {
     _spies = {}
-    _state = {
-      expanded: false
-    }
     _props = {
       selection: {
         name: 'Faucet',
@@ -94,6 +91,23 @@ describe('(Component) Selection', () => {
     _wrapper = shallow(<Selection {..._props} />)
   })
 
+  it('Should initialize with state.', () => {
+    expect(_wrapper.state()).to.deep.equal({ expanded: false })
+  })
+
+  it('Should handle expand change.', () => {
+    _wrapper.instance()._handleExpandChange(true)
+    expect(_wrapper.state('expanded')).to.be.true
+    _wrapper.instance()._handleExpandChange(false)
+    expect(_wrapper.state('expanded')).to.be.false
+  })
+
+  it('Should handle selection info form cancel.', () => {
+    _wrapper.setState({ expanded: true })
+    _wrapper.instance()._handleSelectionInfoFormCancel()
+    expect(_wrapper.state('expanded')).to.be.false
+  })
+
   it('Should render as a <div>.', () => {
     expect(_wrapper.is('div')).to.be.true
     expect(_wrapper.hasClass('selection__container')).to.be.true
@@ -110,7 +124,11 @@ describe('(Component) Selection', () => {
     })
 
     it('has `expanded` prop', () => {
-      expect(_card.props().expanded).to.equal(_state.expanded)
+      expect(_card.props().expanded).to.equal(_wrapper.state('expanded'))
+    })
+
+    it('has `onExpandChange` prop.', () => {
+      expect(_card.props().onExpandChange).to.equal(_wrapper.instance()._handleExpandChange)
     })
 
     it('Should render a CardTitle.', () => {
@@ -154,6 +172,7 @@ describe('(Component) Selection', () => {
       expect(cardText).to.exist
       expect(cardText.props().expandable).to.be.true
       expect(cardText.find(EditSelectionInfoForm)).to.exist
+      expect(cardText.find(EditSelectionInfoForm).props().onCancel).to.equal(_wrapper.instance()._handleSelectionInfoFormCancel) // eslint-disable-line max-len
     })
   })
 
