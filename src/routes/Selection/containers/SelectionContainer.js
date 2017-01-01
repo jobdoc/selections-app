@@ -16,8 +16,8 @@ const mapDispatchToProps = {
   loadSelection
 }
 
-const mapStateToProps = (state) => ({
-  // selection : state.selection
+const mapStateToProps = (state, ownProps) => ({
+  selection : state.entities.selections[ownProps.params.selectionId]
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

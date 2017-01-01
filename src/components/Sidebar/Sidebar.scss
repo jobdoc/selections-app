@@ -2,3 +2,10 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+.sidebar--list-item__active {
+  background-color: rgba(0,0,0,.05);
+  border-radius: 2px;
+  color: #212121;
+  font-weight: bold;
+}

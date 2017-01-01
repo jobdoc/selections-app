@@ -2,41 +2,34 @@ import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Header from 'components/Header'
+import Header from 'containers/HeaderContainer'
 import Sidebar from 'components/Sidebar'
-
-function shallowRender (component) {
-  const renderer = TestUtils.createRenderer()
-
-  renderer.render(component)
-  return renderer.getRenderOutput()
-}
-
-function shallowRenderWithProps (props = {}) {
-  return shallowRender(<CoreLayout {...props} />)
-}
+import { shallow } from 'enzyme'
 
 describe('(Layout) Core', function () {
-  let _component
-  let _props
-  let _child
-  let _container
+  let _wrapper, _props, _child, _container
 
   beforeEach(function () {
     _child = <h1 className='child'>Child</h1>
     _props = {
-      children : _child
+      children : _child,
+      location: {
+        pathname: '/somepath'
+      },
+      params: {
+        routeParam: '1'
+      }
     }
 
-    _component = shallowRenderWithProps(_props)
+    _wrapper = shallow(<CoreLayout {..._props} />)
   })
 
   it('Should render as MuiThemeProvider.', function () {
-    expect(_component.type).to.equal(MuiThemeProvider)
+    expect(_wrapper.type()).to.equal(MuiThemeProvider)
   })
 
   it('Should render a container.', function () {
-    _container = _component.props.children
+    _container = _wrapper.props().children
     expect(_container.type).to.equal('div')
     expect(_container.props.className).to.equal('core-layout__container')
   })
@@ -45,6 +38,7 @@ describe('(Layout) Core', function () {
     const headerContainer = _container.props.children[0]
     expect(headerContainer.type).to.equal('div')
     expect(headerContainer.props.className).to.equal('core-layout__header')
+    expect(headerContainer.props.children.props.params).to.deep.equal(_props.params)
     expect(headerContainer.props.children.type).to.equal(Header)
   })
 
@@ -53,6 +47,7 @@ describe('(Layout) Core', function () {
     expect(sidebarContainer.type).to.equal('div')
     expect(sidebarContainer.props.className).to.equal('core-layout__sidebar')
     expect(sidebarContainer.props.children.type).to.equal(Sidebar)
+    expect(sidebarContainer.props.children.props.pathname).to.equal(_props.location.pathname)
   })
 
   it('Should render a viewport.', function () {

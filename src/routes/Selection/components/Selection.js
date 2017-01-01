@@ -11,9 +11,15 @@ import Avatar from 'material-ui/Avatar'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 
+const statuses = [
+  'outstanding',
+  'options offered',
+  'selection made',
+  'ordered'
+]
 export class Selection extends React.Component {
   componentWillMount () {
-    // this.props.loadSelection(this.props.params.selectionId)
+    this.props.loadSelection(this.props.params.selectionId)
     this.state = {
       expanded: false
     }
@@ -39,13 +45,13 @@ export class Selection extends React.Component {
           onExpandChange={this._handleExpandChange}
         >
           <CardTitle
-            title={this.props.selection.name}
-            subtitle={this.props.selection.location}
+            title={this.props.selection.item}
+            subtitle={this.props.selection.room}
             actAsExpander
             showExpandableButton
           />
           <CardMedia>
-            <Stepper activeStep={1}>
+            <Stepper activeStep={statuses.indexOf(this.props.selection.status)}>
               <Step>
                 <StepLabel>Outstanding</StepLabel>
               </Step>
@@ -132,10 +138,10 @@ export class Selection extends React.Component {
 
 Selection.propTypes = {
   selection          : React.PropTypes.shape({
-    name             : React.PropTypes.string,
-    location         : React.PropTypes.string,
+    item             : React.PropTypes.string,
+    room             : React.PropTypes.string,
     status           : React.PropTypes.string,
-    allowance        : React.PropTypes.number,
+    allowance        : React.PropTypes.string,
     description      : React.PropTypes.string
   }),
   options            : React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -165,7 +171,7 @@ Selection.defaultProps = {
     location: 'Kitchen',
     description: 'This faucet is for the kitchen island.',
     status: 'options offered',
-    allowance: 300
+    allowance: '300'
   },
   options: [
     {

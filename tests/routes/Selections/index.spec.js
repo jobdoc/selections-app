@@ -11,7 +11,7 @@ describe('(Route) Selections', () => {
     expect(typeof _route).to.equal('object')
   })
 
-  it('Configuration should contain path `selections`', () => {
-    expect(_route.path).to.equal('selections')
+  it('Configuration should contain path `selections/:attribute/:type`', () => {
+    expect(_route.path).to.equal('selections/:attribute/:type')
   })
 })

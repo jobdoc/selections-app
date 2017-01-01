@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import { IndexLink, Link } from 'react-router'
 import { List, ListItem } from 'material-ui/List'
 import Subheader from 'material-ui/Subheader'
@@ -7,7 +8,54 @@ import './Sidebar.scss'
 
 import ContentInbox from 'material-ui/svg-icons/content/inbox'
 
-export const Sidebar = () => (
+const categoriesMenu = [
+  {
+    path: '/selections/category/appliances',
+    name: 'Appliances'
+  },
+  {
+    path: '/selections/category/cabinetry',
+    name: 'Cabinetry'
+  },
+  {
+    path: '/selections/category/doors',
+    name: 'Doors'
+  },
+  {
+    path: '/selections/category/flooring',
+    name: 'Flooring'
+  },
+  {
+    path: '/selections/category/lighting%20and%20electrical',
+    name: 'Lighting & Electrical'
+  },
+  {
+    path: '/selections/category/paint',
+    name: 'Paint'
+  },
+  {
+    path: '/selections/category/plumbing',
+    name: 'Plumbing'
+  },
+  {
+    path: '/selections/category/specialty%20items',
+    name: 'Specialty Items'
+  },
+  {
+    path: '/selections/category/tile',
+    name: 'Tile'
+  },
+  {
+    path: '/selections/category/trim',
+    name: 'Trim'
+  },
+  {
+    path: '/selections/category/windows',
+    name: 'Windows'
+  }
+]
+
+export const Sidebar = ({ pathname }) => (
   <div>
     <List>
       <IndexLink className='list-link' to='/'>
@@ -17,39 +65,17 @@ export const Sidebar = () => (
     <Divider />
     <List>
       <Subheader>Categories</Subheader>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Appliances' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Cabinetry' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Doors' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Flooring' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Lighting & Electrical' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Paint' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Plumbing' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Specialty Items' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Tile' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Trim' />
-      </Link>
-      <Link className='list-link' to='/selections'>
-        <ListItem primaryText='Windows' />
-      </Link>
+      {categoriesMenu.map(category => (
+        <Link key={category.path} className='list-link' to={category.path}>
+          <div className={classnames({
+            'sidebar--list-item__active': pathname === category.path
+          })}>
+            <ListItem
+              primaryText={category.name}
+            />
+          </div>
+        </Link>
+      ))}
     </List>
     <Divider />
     <List>
@@ -59,5 +85,9 @@ export const Sidebar = () => (
     </List>
   </div>
 )
+
+Sidebar.propTypes = {
+  pathname     : React.PropTypes.string
+}
 
 export default Sidebar

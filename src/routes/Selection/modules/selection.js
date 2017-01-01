@@ -11,16 +11,16 @@ export const FETCH_SELECTION_SUCCESS = 'FETCH_SELECTION_SUCCESS'
 // Actions
 // ------------------------------------
 
-const fetchSelection = () => ({
+const fetchSelection = (id) => ({
   [CALL_API]: {
     types: [FETCH_SELECTION_REQUEST, FETCH_SELECTION_SUCCESS, FETCH_SELECTION_FAILURE],
-    endpoint: 'getSelections',
-    schema: Schemas.SELECTION_ARRAY
+    endpoint: `getSelection?id=${id}`,
+    schema: Schemas.SELECTION
   }
 })
 
-export const loadSelection = () => (dispatch) => {
-  return dispatch(fetchSelection())
+export const loadSelection = (id) => (dispatch) => {
+  return dispatch(fetchSelection(id))
 }
 
 export const actions = {
@@ -31,18 +31,26 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [FETCH_SELECTION_FAILURE]: (state, action) => ({
-    error: action.error,
+  [FETCH_SELECTION_REQUEST]: (state, action) => ({
+    isFetching: true,
     ...state
   }),
-  [FETCH_SELECTION_SUCCESS]: (state, action) => action.response.entities.selections
+  [FETCH_SELECTION_FAILURE]: (state, action) => ({
+    error: action.error,
+    isFetching: false,
+    ...state
+  }),
+  [FETCH_SELECTION_SUCCESS]: (state, action) => ({
+    isFetching: false,
+    ...state
+  })
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
 const initialState = {}
-export default function selectionsReducer (state = initialState, action) {
+export default function selectionReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

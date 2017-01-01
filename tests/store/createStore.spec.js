@@ -14,16 +14,16 @@ describe('(Store) createStore', () => {
     expect(store.asyncReducers).to.be.empty
   })
 
-  describe('(Location)', () => {
-    it('store should be initialized with Location state', () => {
+  describe('(Routing)', () => {
+    it('store should be initialized with Routing state', () => {
       const location = {
         pathname : '/echo'
       }
       store.dispatch({
-        type    : 'LOCATION_CHANGE',
+        type    : '@@router/LOCATION_CHANGE',
         payload : location
       })
-      expect(store.getState().location).to.deep.equal(location)
+      expect(store.getState().routing.locationBeforeTransitions).to.deep.equal(location)
     })
   })
 

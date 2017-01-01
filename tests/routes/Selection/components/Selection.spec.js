@@ -18,6 +18,9 @@ describe('(Component) Selection', () => {
   beforeEach(() => {
     _spies = {}
     _props = {
+      params: {
+        selectionId: 'someId'
+      },
       selection: {
         name: 'Faucet',
         location: 'Kitchen',
@@ -84,11 +87,14 @@ describe('(Component) Selection', () => {
         }
       ],
       ...bindActionCreators({
-        addSelection   : (_spies.addSelection = sinon.spy()),
-        loadSelections : (_spies.loadSelections = sinon.spy())
+        loadSelection : (_spies.loadSelection = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = shallow(<Selection {..._props} />)
+  })
+
+  it('Should call loadSelection() once mounted.', () => {
+    _spies.loadSelection.should.have.been.called
   })
 
   it('Should initialize with state.', () => {
@@ -134,8 +140,8 @@ describe('(Component) Selection', () => {
     it('Should render a CardTitle.', () => {
       const cardTitle = _card.find(CardTitle)
       expect(cardTitle).to.exist
-      expect(cardTitle.props().title).to.equal(_props.selection.name)
-      expect(cardTitle.props().subtitle).to.equal(_props.selection.location)
+      expect(cardTitle.props().title).to.equal(_props.selection.item)
+      expect(cardTitle.props().subtitle).to.equal(_props.selection.room)
       expect(cardTitle.props().actAsExpander).to.be.true
       expect(cardTitle.props().showExpandableButton).to.be.true
     })
@@ -143,8 +149,14 @@ describe('(Component) Selection', () => {
     it('Should render CardMedia with Stepper.', () => {
       const cardMedia = _card.find(CardMedia)
       expect(cardMedia).to.exist
+      const statuses = [
+        'outstanding',
+        'options offered',
+        'selection made',
+        'ordered'
+      ]
       expect(cardMedia.contains(
-        <Stepper activeStep={1}>
+        <Stepper activeStep={statuses.indexOf(_props.selection.status)}>
           <Step>
             <StepLabel>Outstanding</StepLabel>
           </Step>

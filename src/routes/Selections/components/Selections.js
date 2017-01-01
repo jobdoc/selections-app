@@ -24,8 +24,8 @@ export class Selections extends React.Component {
             return (
               <Link to={`/selection/${selection.id}`} key={`selection-${selection.id}`}>
                 <GridTile
-                  title={selection.product}
-                  subtitle={selection.name}
+                  title={selection.item}
+                  subtitle={selection.description}
                   rows={2}
                 >
                   <img
@@ -48,12 +48,17 @@ export class Selections extends React.Component {
 }
 
 Selections.propTypes = {
+  params         : React.PropTypes.shape({
+    fetchBy      : React.PropTypes.string,
+    type         : React.PropTypes.string
+  }),
   selections     : React.PropTypes.arrayOf(React.PropTypes.shape({
-    name: React.PropTypes.string,
-    product: React.PropTypes.string
+    item         : React.PropTypes.string,
+    description  : React.PropTypes.string
   })),
   addSelection   : React.PropTypes.func.isRequired,
-  loadSelections : React.PropTypes.func.isRequired
+  loadSelections : React.PropTypes.func.isRequired,
+  updatePageTitle: React.PropTypes.func.isRequired
 }
 
 export default Selections

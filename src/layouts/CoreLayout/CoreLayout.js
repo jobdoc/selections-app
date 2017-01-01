@@ -1,18 +1,18 @@
 import React from 'react'
-import Header from 'components/Header'
+import Header from 'containers/HeaderContainer'
 import Sidebar from 'components/Sidebar'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-export const CoreLayout = ({ children }) => (
+export const CoreLayout = ({ location, params, children }) => (
   <MuiThemeProvider>
     <div className='core-layout__container'>
       <div className='core-layout__header'>
-        <Header />
+        <Header params={params} />
       </div>
       <div className='core-layout__sidebar'>
-        <Sidebar />
+        <Sidebar pathname={location.pathname} />
       </div>
       <div className='core-layout__viewport'>
         {children}
@@ -22,7 +22,9 @@ export const CoreLayout = ({ children }) => (
 )
 
 CoreLayout.propTypes = {
-  children : React.PropTypes.element.isRequired
+  children : React.PropTypes.element.isRequired,
+  params   : React.PropTypes.object,
+  location : React.PropTypes.object
 }
 
 export default CoreLayout
