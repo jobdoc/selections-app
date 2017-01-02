@@ -18,13 +18,15 @@ describe('(Component) Selections', () => {
       selections : [
         {
           id: 1,
-          name: 'The one and only',
-          product: 'Coolbeans'
+          item: 'Main sink',
+          description: 'Large sink in kitchen',
+          image_url: 'http://placehold.it/'
         },
         {
           id: 2,
-          name: 'The other',
-          product: 'Weird'
+          item: 'Fun gun',
+          description: 'the funniest',
+          image_url: 'http://placehold.it/'
         }
       ],
       ...bindActionCreators({
@@ -85,13 +87,13 @@ describe('(Component) Selections', () => {
         _gridTiles.forEach((gridTile, idx) => {
           const component = gridTile.find(GridTile)
           expect(component).to.exist
-          expect(component.props().title).to.equal(_props.selections[idx].product)
-          expect(component.props().subtitle).to.equal(_props.selections[idx].name)
+          expect(component.props().title).to.equal(_props.selections[idx].item)
+          expect(component.props().subtitle).to.equal(_props.selections[idx].description)
           expect(component.props().rows).to.equal(2)
 
           const image = component.find('img')
           expect(image.hasClass('selections__tile-image')).to.be.true
-          expect(image.props().src).to.equal('http://res.cloudinary.com/jobdoc/image/upload/c_fit,w_200,h_400/industrial-kitchen-faucets_y7sdei.jpg') // eslint-disable-line max-len
+          expect(image.props().src).to.equal(_props.selections[idx].image_url)
         })
       })
     })

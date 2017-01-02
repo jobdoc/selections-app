@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sidebar } from 'components/Sidebar/Sidebar'
+import { Sidebar, categoriesMenu } from 'components/Sidebar/Sidebar'
 import { IndexLink, Link } from 'react-router'
 import { shallow } from 'enzyme'
 import { List, ListItem } from 'material-ui/List'
@@ -8,10 +8,13 @@ import Divider from 'material-ui/Divider'
 import ContentInbox from 'material-ui/svg-icons/content/inbox'
 
 describe('(Component) Sidebar', () => {
-  let _wrapper
+  let _wrapper, _props
 
   beforeEach(() => {
-    _wrapper = shallow(<Sidebar />)
+    _props = {
+      pathname: '/'
+    }
+    _wrapper = shallow(<Sidebar {..._props} />)
   })
 
   it('Renders three lists', () => {
@@ -33,33 +36,33 @@ describe('(Component) Sidebar', () => {
     it('Should render a Link to Inbox route', () => {
       expect(_wrapper.contains(
         <IndexLink className='list-link' to='/'>
-          <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+          <div className='sidebar--list-item__active'>
+            <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+          </div>
         </IndexLink>
       )).to.be.true
     })
 
-    const categories = [
-      'Appliances',
-      'Cabinetry',
-      'Doors',
-      'Flooring',
-      'Lighting & Electrical',
-      'Paint',
-      'Plumbing',
-      'Specialty Items',
-      'Tile',
-      'Trim',
-      'Windows'
-    ]
-
-    categories.forEach((category) => {
-      it(`Should render a Link to ${category} route`, () => {
+    categoriesMenu.forEach((category) => {
+      it(`Should render a Link to ${category.name} route`, () => {
         expect(_wrapper.contains(
-          <Link className='list-link' to='/selections'>
-            <ListItem primaryText={category} />
+          <Link key={category.path} className='list-link' to={category.path}>
+            <div className=''>
+              <ListItem
+                primaryText={category.name}
+              />
+            </div>
           </Link>
         )).to.be.true
       })
+    })
+
+    it('Should highlight the current route', () => {
+      _wrapper.setProps({
+        pathname: '/selections/category/plumbing'
+      })
+      const menuItem = _wrapper.findWhere(node => node.key() === '/selections/category/plumbing')
+      expect(menuItem.props().children.props.className).to.equal('sidebar--list-item__active')
     })
   })
 })

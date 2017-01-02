@@ -141,7 +141,7 @@ Selection.propTypes = {
     item             : React.PropTypes.string,
     room             : React.PropTypes.string,
     status           : React.PropTypes.string,
-    allowance        : React.PropTypes.string,
+    allowance        : React.PropTypes.number,
     description      : React.PropTypes.string
   }),
   options            : React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -171,7 +171,7 @@ Selection.defaultProps = {
     location: 'Kitchen',
     description: 'This faucet is for the kitchen island.',
     status: 'options offered',
-    allowance: '300'
+    allowance: 300
   },
   options: [
     {

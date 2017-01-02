@@ -30,7 +30,7 @@ export class Selections extends React.Component {
                 >
                   <img
                     className='selections__tile-image'
-                    src='http://res.cloudinary.com/jobdoc/image/upload/c_fit,w_200,h_400/industrial-kitchen-faucets_y7sdei.jpg' // eslint-disable-line max-len
+                    src={selection.image_url}
                   />
                 </GridTile>
               </Link>
@@ -57,8 +57,7 @@ Selections.propTypes = {
     description  : React.PropTypes.string
   })),
   addSelection   : React.PropTypes.func.isRequired,
-  loadSelections : React.PropTypes.func.isRequired,
-  updatePageTitle: React.PropTypes.func.isRequired
+  loadSelections : React.PropTypes.func.isRequired
 }
 
 export default Selections

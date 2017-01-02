@@ -8,7 +8,7 @@ import './Sidebar.scss'
 
 import ContentInbox from 'material-ui/svg-icons/content/inbox'
 
-const categoriesMenu = [
+export const categoriesMenu = [
   {
     path: '/selections/category/appliances',
     name: 'Appliances'
@@ -59,7 +59,11 @@ export const Sidebar = ({ pathname }) => (
   <div>
     <List>
       <IndexLink className='list-link' to='/'>
-        <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+        <div className={classnames({
+          'sidebar--list-item__active': pathname === '/'
+        })}>
+          <ListItem primaryText='Inbox' leftIcon={<ContentInbox />} />
+        </div>
       </IndexLink>
     </List>
     <Divider />
