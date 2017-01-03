@@ -2,9 +2,6 @@ import React from 'react'
 import { Link } from 'react-router'
 import { GridList, GridTile } from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
-import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
-import AddSelectionForm from '../containers/AddSelectionFormContainer'
 import './Selections.scss'
 
 export class Selections extends React.Component {
@@ -15,7 +12,6 @@ export class Selections extends React.Component {
   render () {
     return (
       <div>
-        <AddSelectionForm onSubmit={this.props.addSelection} />
         <GridList
           cols={3}
         >
@@ -37,11 +33,6 @@ export class Selections extends React.Component {
             )
           })}
         </GridList>
-        <div className='selections__add-button'>
-          <FloatingActionButton>
-            <ContentAdd />
-          </FloatingActionButton>
-        </div>
       </div>
     )
   }
@@ -56,7 +47,6 @@ Selections.propTypes = {
     item         : React.PropTypes.string,
     description  : React.PropTypes.string
   })),
-  addSelection   : React.PropTypes.func.isRequired,
   loadSelections : React.PropTypes.func.isRequired
 }
 

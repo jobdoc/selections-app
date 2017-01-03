@@ -6,7 +6,7 @@ import { GridList, GridTile } from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import AddSelectionForm from 'routes/Selections/containers/AddSelectionFormContainer'
+import AddSelectionForm from 'forms/AddSelection/AddSelectionFormContainer'
 import { Link } from 'react-router'
 
 describe('(Component) Selections', () => {
@@ -30,7 +30,6 @@ describe('(Component) Selections', () => {
         }
       ],
       ...bindActionCreators({
-        addSelection   : (_spies.addSelection = sinon.spy()),
         loadSelections : (_spies.loadSelections = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
@@ -43,12 +42,6 @@ describe('(Component) Selections', () => {
 
   it('Should render as a <div>.', () => {
     expect(_wrapper.is('div')).to.be.true
-  })
-
-  it('Should contain AddSelectionForm.', () => {
-    const form = _wrapper.find(AddSelectionForm)
-    expect(form).to.exist
-    expect(form.props().onSubmit).to.be.a('function')
   })
 
   describe('A grid list...', () => {
@@ -96,25 +89,6 @@ describe('(Component) Selections', () => {
           expect(image.props().src).to.equal(_props.selections[idx].image_url)
         })
       })
-    })
-  })
-
-  describe('An action button...', () => {
-    let _actionButtonContainer
-    beforeEach(() => {
-      _actionButtonContainer = _wrapper.find('.selections__add-button')
-    })
-
-    it('Should render as a <div>.', () => {
-      expect(_actionButtonContainer.is('div')).to.be.true
-    })
-
-    it('Should contain FloatingActionButton.', () => {
-      expect(_actionButtonContainer.contains(
-        <FloatingActionButton>
-          <ContentAdd />
-        </FloatingActionButton>
-      )).to.be.true
     })
   })
 })

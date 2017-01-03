@@ -1,7 +1,7 @@
 import React from 'react'
 import './Selection.scss'
 import zip from 'lodash/zip'
-import EditSelectionInfoForm from '../containers/EditSelectionInfoFormContainer'
+import EditSelectionInfoForm from 'forms/EditSelectionInfo/EditSelectionInfoFormContainer'
 import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card'
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper'
 import { Tabs, Tab } from 'material-ui/Tabs'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddSelectionForm } from 'routes/Selections/components/AddSelectionForm'
+import { AddSelectionForm } from 'forms/AddSelection/AddSelectionForm'
 import { shallow } from 'enzyme'
 
 describe('(Component) AddSelectionForm', () => {

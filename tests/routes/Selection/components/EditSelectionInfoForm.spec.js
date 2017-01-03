@@ -1,5 +1,5 @@
 import React from 'react'
-import { EditSelectionInfoForm } from 'routes/Selection/components/EditSelectionInfoForm'
+import { EditSelectionInfoForm } from 'forms/EditSelectionInfo/EditSelectionInfoForm'
 import { shallow } from 'enzyme'
 import { Field } from 'redux-form'
 import MenuItem from 'material-ui/MenuItem'

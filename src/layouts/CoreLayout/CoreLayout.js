@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from 'containers/HeaderContainer'
 import Sidebar from 'components/Sidebar'
+import FABActions from 'containers/FABActionsContainer'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -17,6 +18,7 @@ export const CoreLayout = ({ location, params, children }) => (
       <div className='core-layout__viewport'>
         {children}
       </div>
+      <FABActions />
     </div>
   </MuiThemeProvider>
 )

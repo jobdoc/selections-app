@@ -1,5 +1,5 @@
 import { reduxForm } from 'redux-form'
 
-import EditSelectionInfoForm from '../components/EditSelectionInfoForm'
+import EditSelectionInfoForm from './EditSelectionInfoForm'
 
 export default reduxForm({ form: 'editSelectionInfo' })(EditSelectionInfoForm)
