@@ -1,0 +1,50 @@
+[
+  {
+    "item": "oven",
+    "room": "kitchen",
+    "category": "appliances",
+    "status": "options offered",
+    "allowance": 400,
+    "description": "",
+    "quantity": 1,
+    "selection": null,
+    "options": {
+      "-K_ach5K8dr4jSMIworH": true,
+      "-K_ach5IpGTulfHE5721": true,
+      "-K_ach5FvFZ5y7oj7-9R": true
+    },
+    "comments": []
+  },
+  {
+    "item": "faucet",
+    "room": "dining room",
+    "category": "plumbing",
+    "status": "options offered",
+    "allowance": 200,
+    "description": "for wetbar sink",
+    "quantity": 1,
+    "selection": null,
+    "options": {
+      "-K_ach55MbpUnbzZmcxG": true,
+      "-K_ach5AjE9H37HmOXuO": true,
+      "-K_ach5EpNFweMaoIQH_": true
+    },
+    "comments": []
+  },
+  {
+    "item": "microwave",
+    "room": "kitchen",
+    "category": "appliances",
+    "status": "options offered",
+    "allowance": 400,
+    "description": "",
+    "quantity": 2,
+    "selection": null,
+    "options": {
+      "-K_ach5LS7Dt6Q0vDEUm": true,
+      "-K_ach5LS7Dt6Q0vDEUl": true,
+      "-K_ach5LS7Dt6Q0vDEUk": true
+    },
+    "comments": []
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "item": "oven",
+    "manufacturer": "Thor Kitchen",
+    "model": "36\" Gas Range with 4 Burners, Griddle & Convection Oven",
+    "finish": "Stainless Steel",
+    "size_weight": "W 36\" / D 27.5\" / H 39.75\" / 320 lb.",
+    "description": "Thor Kitchen presents this hot new gas range designed to help you create meals like a professional chef. For those with discriminating tastes, this 5.2 cubic foot oven has the space to get it all done and the power to get it done fast. The freestanding gas range features 4 high powered gas burners and a infrared center griddle, which allow you to cook from a high heat for boiling, frying or searing to a low simmer for the most delicate sauces. The removable back-splash gives it the versatility to be used as a freestanding or slide-in range. With its classic stainless steel body and modern black finishes this modern appliance is designed to perform as well as it looks. 5.2 cu. ft. oven capacity for cooking multiple dishes. 15,000 BTU Center Griddle for high heat searing. Twin 18,000 BTU burners for medium to high heat cooking. Twin 15,000 BTU burners for medium to lower heat. High powered 22,000 BTU Convection Oven. 16,500 BTU Infrared Broiler for grilling and browning food. Electronic Ignition with Auto Re-ignition feature. Stylish stainless metal finish control knobs. Extra-large oven window to easily monitor the progress of your cooking. Twin Halogen Oven Lights. Modern Stainless steel surface is easy to clean and looks great. Two oven racks can be configured into multiple positions to accommodate multiple baking needs. Durable heavy duty cast-iron cooking grates. ",
+    "url": "http://www.houzz.com/photos/78824784/Thor-36-Gas-Range-with-4-Burners-Griddle-and-Convection-Oven-modern-gas-ranges-and-electric-ranges",
+    "image_urls": ["https://st.hzcdn.com/simgs/c98192630846f98b_8-4551/modern-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/c98192630846f98b_8-4551/modern-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/c98192630846f98b_8-4551/modern-gas-ranges-and-electric-ranges.jpg"],
+    "price": 2699,
+    "msrp": 2699,
+    "style": "Modern",
+    "item_code": "O235987V89"
+  },
+
+  {
+    "item": "oven",
+    "manufacturer": "Thor Kitchen",
+    "model": "Professional-Style Double-Oven Gas Range, 48\"",
+    "finish": "Stainless Steel",
+    "size_weight": "W 48\" / D 28\" / H 40\" / 402 lb.",
+    "description": "Thor Kitchen presents this hot new gas range designed to help you create meals like a professional chef. With two ovens having capacities of 4.2 and 2.5 cubic ft., this unit has the space to get it all done and the power to get it done fast. The freestanding gas range features 6 high powered gas burners which allow you to cook from a high heat for boiling, frying or searing to a low simmer for the most delicate sauces. It also features an 18,000 BTU stainless steel griddle. The removable backs-plash gives it the versatility to be used as a freestanding or slide-in range. With its classic stainless steel body and modern black finishes this freestanding gas appliance is designed to perform as well as it looks.",
+    "url": "http://www.houzz.com/photos/46502238/Thor-Kitchen-Professional-Style-Double-Oven-Gas-Range-48-modern-gas-ranges-and-electric-ranges",
+    "image_urls": ["https://st.hzcdn.com/simgs/82810af606d86ecd_8-5860/modern-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/82810af606d86ecd_8-5860/modern-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/82810af606d86ecd_8-5860/modern-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/82810af606d86ecd_8-5860/modern-gas-ranges-and-electric-ranges.jpg" ],
+    "price": 4549,
+    "msrp": 12000,
+    "style": "Modern",
+    "item_code": "X005379238"
+  },
+
+  {
+    "item": "oven",
+    "manufacturer": "Verona Appliances",
+    "model": "Dual-Fuel Single-Oven, Stainless Steel, 36\"",
+    "finish": "Stainless Steel",
+    "size_weight": "W 35.88\" / D 24\" / H 35.38\" / 250 lb.",
+    "description": "Features: 5 sealed, high BTU gas Burners with Electronic Ignition. Porcelainized cast-iron Burner grates and caps. Flame Failure Safety. Chrome knobs and handles, Stainless Steel Bezels. Multi Function European Convection Oven with EZ Clean porcelain surface. Programmable Digital Clock and Timer. 4 Heavy Duty Oven racks. Full width storage comparment. Adjustable stainless steel legs. ",
+    "url": "http://www.houzz.com/photos/33280340/Verona-Dual-Fuel-Single-Oven-Stainless-Steel-36-contemporary-gas-ranges-and-electric-ranges",
+    "image_urls": ["https://st.hzcdn.com/simgs/72416e320575bf73_8-0123/contemporary-gas-ranges-and-electric-ranges.jpg", "https://st.hzcdn.com/simgs/72416e320575bf73_8-0123/contemporary-gas-ranges-and-electric-ranges.jpg"],
+    "price": 2499,
+    "msrp": 2499,
+    "style": "Contemporary",
+    "item_code": "VB2038570X8"
+  }
+]

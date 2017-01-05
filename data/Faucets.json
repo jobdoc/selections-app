@@ -1,0 +1,47 @@
+[
+  {
+    "finish": "Oil Rubbed Bronze",
+    "description": "Premier Copper Products is well known for offering high quality products that are individually handcrafted by skilled artisans at prices that everyone can afford. With superior techniques and talents the artisans at Premier Copper Products are constantly finding new ways to improve product quality and find new and exciting progressive features. They take pride in crafting one-of-a-kind beautiful and durable products that will exceed expectations.Premier Copper Products also takes a vested interest in the environmental concerns faced by all manufacturers today. By using copper that is comprised of 99.6% recycled materials they are saving valuable space in landfills and minimizing the footprint that they leave on the industry. In addition to the fact that it can be endlessly recycled their copper also provides antimicrobial properties, making it not only a responsible choice but a healthy one as well.",
+    "item_code": "K-SPD02ORB",
+    "price": 399,
+    "msrp": 531,
+    "size_weight": "Overall Height: 21\", Overall Width: 5.75\", Spout Height: 7.25\", Spout Reach: 8.75\"",
+    "style": "Modern",
+    "manufacturer": "Premier Copper Products",
+    "model": "Spring Pull-Down Kitchen Faucet",
+    "image_urls": [ "https://st.hzcdn.com/simgs/9281b038039a15b6_8-7032/rustic-kitchen-faucet.jpg"],
+    "url": "http://www.houzz.com/photos/13280279/Spring-Pull-Down-Kitchen-Faucet-Oil-Rubbed-Bronze-rustic-kitchen-faucets",
+    "item": "faucet"
+  },
+
+  {
+    "item": "faucet",
+    "manufacturer": "Dyconn Faucet",
+    "model": "Ponto Antique-Style Kitchen Faucet",
+    "finish": "Oil Rubbed Bronze",
+    "size_weight": "W 2.75\" / D 10\" / H 16.53\" / 3.6 lb.",
+    "description": "The Coronado, La Jolla and Ponto Kitchen faucet is a traditional designed model with a decorated handle and a sturdy pull-out spray handle, which has dual-spray settings: spray and stream.",
+    "url": "http://www.houzz.com/photos/19954661/Ponto-Antique-Style-Kitchen-Faucet-Oil-Rubbed-Bronze-traditional-kitchen-faucets",
+    "image_urls": ["https://st.hzcdn.com/simgs/9381c5e90464f37e_8-3537/traditional-kitchen-faucets.jpg"],
+    "price": 129.99,
+    "msrp": 239.99,
+    "style": "Traditional",
+    "item_code": "XD20946902"
+  },
+
+
+  {
+    "item": "faucet",
+    "manufacturer": "Ariel Bath",
+    "model": "Lead-Free Faucet With Retractable Sprayer",
+    "finish": "Stainless Steel",
+    "size_weight": "Overall Height: 18\",Spout Height: 10\"",
+    "description": "Stainless Steel Pull Out Sprayer Kitchen Faucet. Faucet Body and Sprayer head were constructed by 100% Solid Stainless Steel. Single Lever Operation. Single Hole Installation. Brushed Stainless Steel Finish. Lead Free AB 1953 Compliant",
+    "url": "http://www.houzz.com/photos/16735485/Lead-Free-Faucet-With-Retractable-Sprayer-modern-kitchen-faucets",
+    "image_urls": ["https://st.hzcdn.com/simgs/cfd13a83042c3fc9_8-6059/modern-kitchen-faucets.jpg", "https://st.hzcdn.com/simgs/cfd13a83042c3fc9_8-6059/modern-kitchen-faucets.jpg"],
+    "price": 169,
+    "msrp": 500,
+    "style": "Modern",
+    "item_code": "FA250293857"
+  }
+]

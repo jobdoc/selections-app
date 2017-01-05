@@ -10,6 +10,14 @@ import Divider from 'material-ui/Divider'
 import Avatar from 'material-ui/Avatar'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
+import Rebase from 're-base'
+
+const base = Rebase.createClass({
+  apiKey: 'AIzaSyB6H6xujHgnFp7fW5zdGeRoQWFOwoRkr-s',
+  authDomain: 'jobdoc-151914.firebaseapp.com',
+  databaseURL: 'https://jobdoc-151914.firebaseio.com/',
+  storageBucket: 'jobdoc-151914.appspot.com'
+}, 'jobdoc')
 
 const statuses = [
   'outstanding',
@@ -18,11 +26,33 @@ const statuses = [
   'ordered'
 ]
 export class Selection extends React.Component {
-  componentWillMount () {
-    this.props.loadSelection(this.props.params.selectionId)
+  constructor (props) {
+    super(props)
     this.state = {
+      selection: null,
+      options: [],
       expanded: false
     }
+  }
+
+  componentWillMount () {
+    this.selectionsRef = base.syncState(`selections/${this.props.params.selectionId}`, {
+      context: this,
+      state: 'selection',
+      then: this.fetchOptions
+    })
+  }
+
+  fetchOptions = () => {
+    const optionPromises = Object.keys(this.state.selection.options)
+      .map(option => base.fetch(`products/${option}`, { context: this }))
+    Promise.all(optionPromises).then(options => {
+      this.setState({ options })
+    })
+  }
+
+  componentWillUnmount () {
+    base.removeBinding(this.selectionsRef)
   }
 
   _handleSelectionInfoFormCancel = () => {
@@ -38,6 +68,10 @@ export class Selection extends React.Component {
   }
 
   render () {
+    const { selection, options } = this.state
+    if (!selection) {
+      return <h5>Loading...</h5>
+    }
     return (
       <div className='selection__container'>
         <Card
@@ -45,13 +79,13 @@ export class Selection extends React.Component {
           onExpandChange={this._handleExpandChange}
         >
           <CardTitle
-            title={this.props.selection.item}
-            subtitle={this.props.selection.room}
+            title={selection.item}
+            subtitle={selection.room}
             actAsExpander
             showExpandableButton
           />
           <CardMedia>
-            <Stepper activeStep={statuses.indexOf(this.props.selection.status)}>
+            <Stepper activeStep={statuses.indexOf(selection.status)}>
               <Step>
                 <StepLabel>Outstanding</StepLabel>
               </Step>
@@ -67,7 +101,7 @@ export class Selection extends React.Component {
             </Stepper>
           </CardMedia>
           <CardText>
-            {this.props.selection.description}
+            {selection.description}
           </CardText>
           <CardText expandable>
             <EditSelectionInfoForm onCancel={this._handleSelectionInfoFormCancel} />
@@ -75,11 +109,11 @@ export class Selection extends React.Component {
         </Card>
         <Card>
           <Tabs>
-            {this.props.options.map((option, idx) => {
+            {options.map((option, idx) => {
               return (
                 <Tab label={`Option ${++idx}`} key={option.id}>
                   <CardMedia>
-                    <img src={option.image_url} alt={option.model} />
+                    <img src={option.image_urls[0]} alt={option.model} />
                   </CardMedia>
                   <List>
                     <a className='list-link' href={option.url} target='_blank'>
